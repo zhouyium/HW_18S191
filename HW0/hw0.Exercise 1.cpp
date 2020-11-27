@@ -8,11 +8,13 @@ using namespace std;
 #define __LOCAL
 
 const double EPS = 1e-8;
+int cnt=0;
 
 double solve(double x) {
     double ans=rand()%((long long)(ceil(x)))+0.1;
     double t;
     do {
+        cnt++;
         t=x/ans;
         ans = (t+ans)/2;
     } while (abs(t-ans)>EPS);
@@ -41,6 +43,7 @@ int main() {
     cout<<solve(x)<<"\n";
     cout<<"Using function sqrt the square root of "<<x<<" is ";
     cout<<sqrt(x)<<"\n";
+    cout<<"iteration time "<<cnt<<"\n";
 
 #ifdef __LOCAL
     //这部分代码不需要提交到OJ，本地调试使用
